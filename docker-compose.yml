@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./.docker/php/Dockerfile
+    volumes:
+      - .:/usr/src/
+      - './.docker/php/php.ini:/usr/local/etc/php/php.ini'
+    image: today-app
+    restart: always
+    ports:
+      - 8085:80
